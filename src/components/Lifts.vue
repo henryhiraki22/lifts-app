@@ -10,6 +10,7 @@
         </select>
     </div>
     <br>
+    <form @submit.prevent="createPost">
     <div v-if="selected === 'a'">
         Squat: <input value="squat"/>
         <br><br>
@@ -18,6 +19,8 @@
         Barbel Row: <input value="barbel_row"/>
         <br><br>
         Data de treino: <input value="date"/>
+        <br><br>
+        <button>Salvar</button>
     </div>
     <div v-if="selected === 'b'">
         Squat: <input value="squat"/>
@@ -27,8 +30,10 @@
         DeadLift: <input value="barbel_row"/>
         <br><br>
         Data de treino: <input value="date"/>
+        <br><br>
+        <button>Salvar</button>
     </div>
-    
+   </form>
 
   </div>
 
@@ -36,6 +41,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'Lifts',
   data () {
@@ -44,7 +50,40 @@ export default {
       selected: '',
     }
   },
-
+    methods:{
+        createPost(){
+         if (this.selected === 'a'){
+            axios.post('http://localhost:8090/api/createlifta', {
+                squat: this.squat,
+                bench_press: this.bench_press,
+                barbel_row: this.barbel_row,
+                date: this.date
+            })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+            return
+    }
+    if (this.selected === 'b'){
+        axios.post('http://localhost:8090/api/createliftb', {
+            squat: this.squat,
+            over_head_press: this.over_head_press,
+            dead_lift: this.dead_lift,
+            date: this.date
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+        return
+        }
+     }
+   }
 }
 </script>
 
