@@ -98,6 +98,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b981;
+  color: #42b984;
 }
 </style>
