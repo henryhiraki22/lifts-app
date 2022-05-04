@@ -6,7 +6,7 @@
         <select v-model="selected">
             <option disabled value="">Escolha um treino</option>
             <option value="a">Treino A</option>
-            <option value="b">Treino B</option>        
+            <option value="b">Treino B</option>
         </select>
     </div>
     <br>
@@ -36,12 +36,10 @@
    </form>
 
   </div>
-
-
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 export default {
   name: 'Lifts',
   data () {
@@ -100,6 +98,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #42b981;
 }
 </style>
